@@ -192,7 +192,7 @@ resource "aws_lb" "web" {
 resource "aws_lb_listener" "web" {
   load_balancer_arn = "${aws_lb.web.arn}" # points to LB the listener will be attached to
   port              = 80
-  protocol          = "HTTP"
+  protocol          = "TCP"
 
   default_action {
     target_group_arn = "${aws_lb_target_group.web.arn}" # target group,which would receive traffic from LB

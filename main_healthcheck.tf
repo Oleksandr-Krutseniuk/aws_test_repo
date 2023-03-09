@@ -192,7 +192,7 @@ resource "aws_lb" "web" {
 resource "aws_lb_listener" "web" {
   load_balancer_arn = "${aws_lb.web.arn}" # points to LB the listener will be attached to
   port              = 80
-  protocol          = "TCP"
+  protocol          = "HTTP"
 
   default_action {
     target_group_arn = "${aws_lb_target_group.web.arn}" # target group,which would receive traffic from LB
@@ -207,7 +207,7 @@ resource "aws_lb_target_group" "web" {
   name     = "my-target-group"
   depends_on = [aws_vpc.my_vpc]
   port     = 80 # port used by backend to receive traffic from LB 
-  protocol = "TCP"
+  protocol = "HTTP"
   vpc_id = aws_vpc.my_vpc.id
   
 

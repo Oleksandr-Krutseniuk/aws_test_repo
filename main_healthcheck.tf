@@ -207,7 +207,7 @@ resource "aws_lb_target_group" "web" {
   name     = "my-target-group"
   depends_on = [aws_vpc.my_vpc]
   port     = 80 # port used by backend to receive traffic from LB 
-  protocol = "HTTP"
+  protocol = "TCP"
   vpc_id = aws_vpc.my_vpc.id
   
 
